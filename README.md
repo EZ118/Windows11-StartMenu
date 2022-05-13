@@ -10,3 +10,6 @@ Windows11 StartMenu For Other Windows Version, based on Visual Basic 6.0
    
 **如果对于美化还有其他需求，建议配合“CenterTaskbar”工具将所有图标居中**   
 **CenterTaskBar并非由本作者制作**，在files文件夹下附有该程序。   
+
+**更换快捷方式的方法**   
+将快捷方式移动到Links文件夹下，然后编辑AppList.ini即可
