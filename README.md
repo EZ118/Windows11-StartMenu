@@ -1,6 +1,8 @@
 # Windows11-StartMenu   
 Windows11 StartMenu For Other Windows Version, based on Visual Basic 6.0   
 专为版本低于Windows11的Windows系统设计的Win11样式开始菜单，基于Microsoft Visual Basic 6.0开发   
+
+最新进展：支持启动和退出动画
    
 ## 使用方法  
 **将Build文件夹下StartMenu.exe拖动到任务栏，然后将图标拖动至任务栏最左侧即可（如图）**   

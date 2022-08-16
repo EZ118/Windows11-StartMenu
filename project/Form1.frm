@@ -11,6 +11,11 @@ Begin VB.Form Form1
    ScaleHeight     =   10020
    ScaleWidth      =   11925
    ShowInTaskbar   =   0   'False
+   Begin VB.Timer AnimationTimer 
+      Interval        =   3
+      Left            =   5520
+      Top             =   9360
+   End
    Begin VB.TextBox Search_Input 
       Appearance      =   0  'Flat
       BorderStyle     =   0  'None
@@ -288,7 +293,7 @@ Begin VB.Form Form1
    Begin VB.Image More_Recommended_Btn_Bg 
       Height          =   330
       Left            =   7680
-      Picture         =   "Form1.frx":4DD03
+      Picture         =   "Form1.frx":EF8B
       Stretch         =   -1  'True
       Top             =   5760
       Width           =   1185
@@ -318,7 +323,7 @@ Begin VB.Form Form1
    Begin VB.Image All_Apps_Btn_Bg 
       Height          =   330
       Left            =   7440
-      Picture         =   "Form1.frx":64C4D
+      Picture         =   "Form1.frx":25ED5
       Stretch         =   -1  'True
       Top             =   3360
       Width           =   1425
@@ -413,7 +418,7 @@ Begin VB.Form Form1
    Begin VB.Image WindowBgImage 
       Height          =   7860
       Left            =   1920
-      Picture         =   "Form1.frx":7BB97
+      Picture         =   "Form1.frx":3CE1F
       Stretch         =   -1  'True
       Top             =   2040
       Width           =   7635
@@ -461,6 +466,10 @@ Private Type SHFILEINFO
 End Type
 Private udtFI As SHFILEINFO
 '获取文件图标
+
+Dim AniFlag As Integer
+Dim AniCnt As Integer
+
  
 Public Sub ShowIcon(strAnyFile As String, pic As PictureBox)
     Dim hLarge As Long
@@ -478,7 +487,7 @@ Public Sub Start(appid As String)
     read2 = String(255, 0)
     read_OK = GetPrivateProfileString("Pinned", appid, "Noting", read2, 256, App.Path & "\AppList.ini")
     a = ShellExecute(Me.hwnd, vbNullString, App.Path & "\Links\" & read2, vbNullString, "D:\", SW_SHOWNORMAL)
-    End
+    AniFlag = 2
 End Sub
 '打开指定文件快捷方式
 
@@ -492,19 +501,42 @@ Public Sub PlaceIcon(appid As String, pic As PictureBox)
 End Sub
 '添加Icon
 
+
+
+Private Sub AnimationTimer_Timer()
+    If AniFlag = 1 Then
+        If Form1.Top <= Screen.Height - 250 - Form1.Height Then
+            AniFlag = 0
+        End If
+        AniCnt = AniCnt - 450
+        Form1.Top = AniCnt
+    End If
+    If AniFlag = 2 Then
+        If Form1.Top >= Screen.Height - 300 Then
+            AniFlag = 0
+            End
+        End If
+        AniCnt = AniCnt + 700
+        Form1.Top = AniCnt
+    End If
+End Sub
+
 Private Sub Close_Mask_Btn_Left_Click()
-    End
+    AniFlag = 2
 End Sub
 
 Private Sub Close_Mask_Btn_Right_Click()
-    End
+    AniFlag = 2
 End Sub
 
 Private Sub Close_Mask_Btn_Top_Click()
-    End
+    AniFlag = 2
 End Sub
 
 Private Sub Form_Load()
+    Me.Hide
+    
+    
     Me.BackColor = &HFF0000
     Dim rtn As Long
     Dim BorderStyler
@@ -531,6 +563,12 @@ Private Sub Form_Load()
     Call PlaceIcon("App10", App_Icon10)
     Call PlaceIcon("App11", App_Icon11)
     Call PlaceIcon("App12", App_Icon12)
+    
+    Me.Top = Screen.Height
+    Me.Show
+    
+    AniFlag = 1
+    AniCnt = Screen.Height
 
 End Sub
 
