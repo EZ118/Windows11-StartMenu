@@ -3,6 +3,7 @@ Form=Form1.frm
 IconForm="Form1"
 Startup="Form1"
 ExeName32="StartMenu.exe"
+Path32="..\build"
 Command32=""
 Name="¹¤³Ì1"
 HelpContextID="0"

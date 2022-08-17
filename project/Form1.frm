@@ -293,7 +293,7 @@ Begin VB.Form Form1
    Begin VB.Image More_Recommended_Btn_Bg 
       Height          =   330
       Left            =   7680
-      Picture         =   "Form1.frx":EF8B
+      Picture         =   "Form1.frx":000C
       Stretch         =   -1  'True
       Top             =   5760
       Width           =   1185
@@ -323,7 +323,7 @@ Begin VB.Form Form1
    Begin VB.Image All_Apps_Btn_Bg 
       Height          =   330
       Left            =   7440
-      Picture         =   "Form1.frx":25ED5
+      Picture         =   "Form1.frx":16F56
       Stretch         =   -1  'True
       Top             =   3360
       Width           =   1425
@@ -418,7 +418,7 @@ Begin VB.Form Form1
    Begin VB.Image WindowBgImage 
       Height          =   7860
       Left            =   1920
-      Picture         =   "Form1.frx":3CE1F
+      Picture         =   "Form1.frx":2DEA0
       Stretch         =   -1  'True
       Top             =   2040
       Width           =   7635
@@ -497,7 +497,7 @@ Public Sub PlaceIcon(appid As String, pic As PictureBox)
     read2 = String(255, 0)
     read_OK = GetPrivateProfileString("Pinned", appid, "Noting", read2, 256, App.Path & "\AppList.ini")
     Call ShowIcon(App.Path & "\Links\" & read2, pic)
-    pic.ToolTipText = read2
+    pic.ToolTipText = Replace(read2, ".lnk", "")
 End Sub
 'Ìí¼ÓIcon
 
