@@ -9,6 +9,8 @@ Windows11 StartMenu For Other Windows Version, based on Visual Basic 6.0
 启动程序只需要点击图标或者按下Win+1即可   
 ![image](https://user-images.githubusercontent.com/79049368/168239256-1ca6a075-3e16-4861-b135-6930b9ebc416.png)   
    
+![image](https://user-images.githubusercontent.com/79049368/185739133-d243188e-b967-4f4f-b18e-8ba9f537c6b0.png)   
+*以上为效果图*   
    
 **如果对于美化还有其他需求，建议配合“CenterTaskbar”工具将所有图标居中**   
 **CenterTaskBar并非由本作者制作**，在files文件夹下附有该程序。   
